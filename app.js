@@ -14,7 +14,8 @@ const contactContent =
 const app = express();
 const port = 2;
 app.set("view engine", "ejs");
-
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static("public"));
 app.get("/", (req, res) => {
   res.render("home", { content: homeStartingContent });
 });
@@ -25,8 +26,15 @@ app.get("/contact", (req, res) => {
   res.render("contact", { contactContent: contactContent });
 });
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static("public"));
+app.get("/compose", (req, res) => {
+  res.render("compose");
+});
+
+app.post("/compose", (req, res) => {
+  let comp = req.body.composed;
+  console.log(comp);
+  res.redirect("/compose");
+});
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
