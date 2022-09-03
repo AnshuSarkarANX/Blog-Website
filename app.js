@@ -13,6 +13,7 @@ const contactContent =
 
 const app = express();
 const port = 2;
+const compose_arr = [];
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
@@ -32,10 +33,12 @@ app.get("/compose", (req, res) => {
 
 app.post("/compose", (req, res) => {
   let post = {
-    body: req.body.posttitle,
-    post: req.body.postbody,
+    title: req.body.posttitle,
+    content: req.body.postbody,
   };
-  res.redirect("/compose");
+  compose_arr.push(post);
+  console.log(compose_arr);
+  res.redirect("/");
 });
 
 app.listen(port, () => {
