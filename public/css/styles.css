@@ -33,3 +33,11 @@
 	font-size: 12px;
   color: #fff;
 }
+
+.btnx{
+    border-style: dotted;
+    margin-top: -5px;
+    color: #1ABC9C;
+    accent-color:  #F8F8F8;
+    
+}
