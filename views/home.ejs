@@ -2,8 +2,9 @@
 <h1>Home</h1>
 <p><%= content  %> </p>
 
-<% for (let i =0 ; i < post.length ; i++){%>
-<% console.log(post[i].title);}%>
+<%post.forEach((post) =>{%>
+<% console.log(post.title);%>
+<%});%>
 
 
 <%-include("partials/footer");%>
