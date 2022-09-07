@@ -41,6 +41,15 @@ app
     res.redirect("/");
   });
 
+app.route("/post/:posttitle").get((req, res) => {
+  compose_arr.forEach((post) => {
+    if (post.title === req.params.posttitle) {
+      console.log("match found!");
+    } else {
+    }
+  });
+});
+
 app.route("/compose/:topic").get((req, res) => {
   console.log(req.params.topic);
 });
