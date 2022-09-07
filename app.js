@@ -41,6 +41,10 @@ app
     res.redirect("/");
   });
 
+app.route("/compose/:topic").get((req, res) => {
+  console.log(req.params.topic);
+});
+
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
