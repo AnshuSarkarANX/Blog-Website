@@ -27,18 +27,19 @@ app.get("/contact", (req, res) => {
   res.render("contact", { contactContent: contactContent });
 });
 
-app.get("/compose", (req, res) => {
-  res.render("compose");
-});
-
-app.post("/compose", (req, res) => {
-  let post = {
-    title: req.body.posttitle,
-    content: req.body.postbody,
-  };
-  compose_arr.push(post);
-  res.redirect("/");
-});
+app
+  .route("/compose")
+  .get((req, res) => {
+    res.render("compose");
+  })
+  .post((req, res) => {
+    let post = {
+      title: req.body.posttitle,
+      content: req.body.postbody,
+    };
+    compose_arr.push(post);
+    res.redirect("/");
+  });
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
