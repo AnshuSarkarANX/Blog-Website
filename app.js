@@ -43,10 +43,15 @@ app
   });
 
 app.route("/post/:posttitle").get((req, res) => {
+  var pTitle = _.lowerCase([req.params.posttitle]);
   compose_arr.forEach((post) => {
-    if (post.title === req.params.posttitle) {
+    var aTitle = _.lowerCase([post.title]);
+    if (aTitle === pTitle) {
       console.log("match found!");
+      console.log(aTitle, pTitle);
     } else {
+      console.log("match not found!");
+      console.log(aTitle, pTitle);
     }
   });
 });
