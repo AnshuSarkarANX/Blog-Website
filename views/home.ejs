@@ -4,7 +4,10 @@
 
 <%post.forEach((post) =>{%>
 <h2><%=post.title%></h2> 
-<p><%=post.content%></p>
+<% function limit (string = '', limit = 0) { %> 
+<% return string.substring(0, limit)}%>
+<% let content = limit(post.content, 100)%> 
+<p><%=content%> ......</p>
 <%});%>
 
 
