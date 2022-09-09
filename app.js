@@ -45,13 +45,13 @@ app
 app.route("/post/:posttitle").get((req, res) => {
   var pTitle = _.lowerCase([req.params.posttitle]);
   compose_arr.forEach((post) => {
-    var aTitle = _.lowerCase([post.title]);
+    var aTitle = _.lowerCase(post.title);
+    var Title = post.title;
+    var Post = post.content;
     if (aTitle === pTitle) {
-      console.log("match found!");
-      console.log(aTitle, pTitle);
+      res.render("post", { Title: Title, Post: Post });
     } else {
       console.log("match not found!");
-      console.log(aTitle, pTitle);
     }
   });
 });
