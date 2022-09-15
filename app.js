@@ -45,7 +45,7 @@ app
 app.route("/post/:posttitle").get((req, res) => {
   let pTitle = _.lowerCase([req.params.posttitle]);
   compose_arr.forEach((post) => {
-    var aTitle = _.lowerCase(post.title);
+    let aTitle = _.lowerCase(post.title);
     var Title = post.title;
     var Post = post.content;
     if (aTitle === pTitle) {
